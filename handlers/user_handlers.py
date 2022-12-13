@@ -2,11 +2,13 @@ from aiogram import Dispatcher
 from aiogram.types import Message
 from aiogram.dispatcher.filters import Text
 
+
 from language.lexicon_ru import LEXICON_RU
 from language.lexicon_ru import CURRENCIES
 from keyboards.keyboards import currency_kb
 from keyboards.keyboards import change_currency_kb
 from language.lexicon_ru import STATES
+from services.services import digit_check
 
 
 # Этот хэндлер срабатывает на команду /start
@@ -38,9 +40,10 @@ async def process_choose_drum(message: Message):
     await message.answer(text=CURRENCIES['drum'], reply_markup=currency_kb)
     STATES['chosen_currency'] = 'drum'
     print(STATES)
+    print(LEXICON_RU)
 
 async def process_numbers_answer(message: Message):
-    pass
+    await digit_check(message)
 
 
 
