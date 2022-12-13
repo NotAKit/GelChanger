@@ -30,13 +30,14 @@ async def process_choose_gel(message: Message):
 
 
 async def process_choose_doll(message: Message):
-    await message.answer(text=CURRENCIES['doll'], reply_markup=currency_kb)
-    STATES['chosen_carrency'] = 'doll'
+    await message.answer(text=CURRENCIES['dollar'], reply_markup=currency_kb)
+    STATES['chosen_carrency'] = 'dollar'
 
 
 async def process_choose_drum(message: Message):
     await message.answer(text=CURRENCIES['drum'], reply_markup=currency_kb)
     STATES['chosen_carrency'] = 'drum'
+    print(STATES)
 
 
 
@@ -47,5 +48,5 @@ def register_user_handlers(dp: Dispatcher):
     dp.register_message_handler(process_help_command, commands='help')
     dp.register_message_handler(process_currency_answer, text=LEXICON_RU['currency'])
     dp.register_message_handler(process_choose_gel, text=CURRENCIES['gel'])
-    dp.register_message_handler(process_choose_doll, text=CURRENCIES['doll'])
+    dp.register_message_handler(process_choose_doll, text=CURRENCIES['dollar'])
     dp.register_message_handler(process_choose_drum, text=CURRENCIES['drum'])
