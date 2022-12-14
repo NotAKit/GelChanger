@@ -10,6 +10,7 @@ currency_kb: ReplyKeyboardMarkup = ReplyKeyboardMarkup(one_time_keyboard=True,
 
 button_currency: KeyboardButton = KeyboardButton(LEXICON_RU['currency'])
 
+
 # Располагаем кнопку
 currency_kb.add(button_currency)
 

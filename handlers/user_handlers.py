@@ -42,6 +42,7 @@ async def process_choose_drum(message: Message):
     print(STATES)
     print(LEXICON_RU)
 
+
 async def process_numbers_answer(message: Message):
     await digit_check(message)
 

@@ -3,6 +3,7 @@ import logging
 
 from aiogram import Bot, Dispatcher
 
+from language.lexicon_ru import STATES
 from config_data.config import Config, load_config
 from handlers.user_handlers import register_user_handlers
 # from handlers.other_handlers import register_other_handlers
@@ -45,7 +46,7 @@ async def main():
     finally:
         await bot.close()
 
-
+print(STATES, 'bot')
 if __name__ == '__main__':
     try:
         # Запускаем функцию main
