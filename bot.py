@@ -46,7 +46,6 @@ async def main():
     finally:
         await bot.close()
 
-print(STATES, 'bot')
 if __name__ == '__main__':
     try:
         # Запускаем функцию main
