@@ -1,5 +1,4 @@
 STATES: dict[str, str] = {
-    'chosen_currency': 'gel'
 }
 
 CURRENCIES: dict[str, str] = {
@@ -9,7 +8,7 @@ CURRENCIES: dict[str, str] = {
                                }
 
 
-LEXICON_RU: dict[str, str] = {'/start': f'Введите число для перевода в {CURRENCIES[STATES["chosen_currency"]]}',
+LEXICON_RU: dict[str, str] = {'/start': f'Введите число для перевода в ',
                               '/help': '/хелп',
                               'currency': 'Выбор валюты',
                               }

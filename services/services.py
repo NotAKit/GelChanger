@@ -1,27 +1,43 @@
 from aiogram.types import Message
+from language.lexicon_ru import STATES
+import requests
 import random
+
+def is_float(num):
+    print(num)
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
+
+def currency():
+    if STATES['chosen_currency'] == 'gel':
+        return 27
+    if STATES['chosen_currency'] == 'dollar':
+        return 72
+
+
+
+def ending(number):
+    if int(number) % 10 == 0 or int(number) % 10 == 5 or int(number) % 10 == 6 or int(number) % 10 == 7 or int(
+            number) % 10 == 8 or int(number) % 10 == 9:
+        return 'рублей'
+    elif int(number) % 10 == 1:
+        return 'рубль'
+    elif int(number) % 10 == 2 or int(number) % 10 == 3 or int(number) % 10 == 4:
+        return 'рубля'
+
+
+async def calculate(message: Message):
+
+    number = int(message.text) * int(currency())
+    await message.answer(text=f'{number} {ending(number)}')
+
 
 
 async def digit_check(message: Message):
-    flag = False
-    mess = message.text
-    for i in range(len(mess)):
-        if mess[i] in '1234567890.':
-            flag = True
-        else:
-            flag = False
-    if flag == True:
-        dots = message.text.replace(',','.')
-        dots = dots.replace(' ','')
-
-        # умножаю введенное число на 23
-        gel = float(dots) * 23
-        if int(gel)%10 == 0 or int(gel)%10 == 5 or int(gel)%10 == 6 or int(gel)%10 == 7 or int(gel)%10 == 8 or int(gel)%10 == 9:
-            await message.answer(text=f'{gel} рублей')
-        elif int(gel)%10 == 1 :
-            await message.answer(text=f'{gel} рубль')
-        elif int(gel)%10 == 2 or int(gel)%10 == 3 or int(gel)%10 == 4:
-            await message.answer(text=f'{gel} рубля')
-
+    if is_float(message.text):
+        await calculate(message)
     else:
        await message.answer(text='Введите число')
