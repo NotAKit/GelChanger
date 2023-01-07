@@ -3,6 +3,7 @@ from language.lexicon_ru import STATES
 import requests
 import random
 
+
 def is_float(num):
     print(num)
     try:
@@ -11,12 +12,12 @@ def is_float(num):
     except ValueError:
         return False
 
+
 def currency():
     if STATES['chosen_currency'] == 'gel':
         return 27
     if STATES['chosen_currency'] == 'dollar':
         return 72
-
 
 
 def ending(number):
@@ -30,14 +31,12 @@ def ending(number):
 
 
 async def calculate(message: Message):
-
     number = int(message.text) * int(currency())
     await message.answer(text=f'{number} {ending(number)}')
-
 
 
 async def digit_check(message: Message):
     if is_float(message.text):
         await calculate(message)
     else:
-       await message.answer(text='Введите число')
+        await message.answer(text='Введите число')
