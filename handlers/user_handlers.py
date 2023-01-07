@@ -1,16 +1,16 @@
 from aiogram import Dispatcher
 from aiogram.types import Message
 from aiogram.dispatcher.filters import Text
-
-from language.lexicon_ru import LEXICON_RU
-from language.lexicon_ru import CURRENCIES
+from dictionary.lexicon_ru import LEXICON_RU
+from dictionary.lexicon_ru import CURRENCIES
 from keyboards.keyboards import currency_kb
 from keyboards.keyboards import change_currency_kb
-from language.lexicon_ru import STATES
+from dictionary.lexicon_ru import STATES
 from services.services import digit_check
 
 # задается валюта по умолчанию
 STATES['chosen_currency'] = 'gel'
+
 
 # Этот хэндлер срабатывает на команду /start
 async def process_start_command(message: Message):
@@ -46,8 +46,6 @@ async def process_choose_drum(message: Message):
 
 async def process_numbers_answer(message: Message):
     await digit_check(message)
-
-
 
 
 # Функция для регистрации хэндлеров в диспетчере. Вызывается в исполняемом файле bot.py

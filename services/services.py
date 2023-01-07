@@ -1,5 +1,5 @@
 from aiogram.types import Message
-from language.lexicon_ru import STATES
+from dictionary.lexicon_ru import STATES
 import requests
 import random
 

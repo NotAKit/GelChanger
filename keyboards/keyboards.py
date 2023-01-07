@@ -1,7 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-from language.lexicon_ru import LEXICON_RU
-from language.lexicon_ru import CURRENCIES
+from dictionary.lexicon_ru import LEXICON_RU
+from dictionary.lexicon_ru import CURRENCIES
 
 
 # Создаем клавиатуру с кнопкой Выбрать валюту
