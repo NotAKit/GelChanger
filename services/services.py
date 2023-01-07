@@ -18,6 +18,8 @@ def currency():
         return 27
     if STATES['chosen_currency'] == 'dollar':
         return 72
+    if STATES['chosen_currency'] == 'drum':
+        return 0.18
 
 
 def ending(number):
@@ -31,7 +33,7 @@ def ending(number):
 
 
 async def calculate(message: Message):
-    number = int(message.text) * int(currency())
+    number = int(message.text) * float(currency())
     await message.answer(text=f'{number} {ending(number)}')
 
 

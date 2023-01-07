@@ -14,7 +14,7 @@ STATES['chosen_currency'] = 'gel'
 
 # Этот хэндлер срабатывает на команду /start
 async def process_start_command(message: Message):
-    await message.answer(text=LEXICON_RU['/start'], reply_markup=currency_kb)
+    await message.answer(text=f'Введите число для перевода в {CURRENCIES[STATES["chosen_currency"]]}', reply_markup=currency_kb)
 
 
 # Этот хэндлер срабатывает на команду /help
@@ -24,7 +24,7 @@ async def process_help_command(message: Message):
 
 # Этот хэндлер срабатывает на согласие пользователя играть в игру
 async def process_currency_answer(message: Message):
-    await message.answer(text=LEXICON_RU['currency'], reply_markup=change_currency_kb)
+    await message.answer(text=f'Выбранная валюта {CURRENCIES[STATES["chosen_currency"]]}', reply_markup=change_currency_kb)
 
 
 async def process_choose_gel(message: Message):
@@ -40,8 +40,7 @@ async def process_choose_doll(message: Message):
 async def process_choose_drum(message: Message):
     await message.answer(text=CURRENCIES['drum'], reply_markup=currency_kb)
     STATES['chosen_currency'] = 'drum'
-    print(STATES)
-    print(LEXICON_RU)
+
 
 
 async def process_numbers_answer(message: Message):
