@@ -33,7 +33,7 @@ def ending(number):
 
 
 async def calculate(message: Message):
-    number = int(message.text) * float(currency())
+    number = float(message.text) * float(currency())
     await message.answer(text=f'{number} {ending(number)}')
 
 
