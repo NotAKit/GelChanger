@@ -9,10 +9,11 @@ currency_kb: ReplyKeyboardMarkup = ReplyKeyboardMarkup(one_time_keyboard=True,
                                                      resize_keyboard=True)
 
 button_currency: KeyboardButton = KeyboardButton(LEXICON_RU['currency'])
+button_currency_actual: KeyboardButton = KeyboardButton(LEXICON_RU['currency_actual'])
 
 
 # Располагаем кнопку
-currency_kb.add(button_currency)
+currency_kb.add(button_currency).add(button_currency_actual)
 
 
 change_currency_kb: ReplyKeyboardMarkup = ReplyKeyboardMarkup(one_time_keyboard=True,
@@ -22,6 +23,7 @@ change_currency_kb: ReplyKeyboardMarkup = ReplyKeyboardMarkup(one_time_keyboard=
 button_gel: KeyboardButton = KeyboardButton(CURRENCIES['gel'])
 button_doll: KeyboardButton = KeyboardButton(CURRENCIES['dollar'])
 button_drum: KeyboardButton = KeyboardButton(CURRENCIES['drum'])
+button_eur: KeyboardButton = KeyboardButton(CURRENCIES['eur'])
 
 # распологаем кнопки по одной в ряд
-change_currency_kb.add(button_doll).add(button_gel).add(button_drum)
+change_currency_kb.add(button_doll).add(button_gel).add(button_drum).add(button_eur)
