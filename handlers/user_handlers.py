@@ -76,7 +76,14 @@ async def process_currency_actual_answer(message: Message):
     gel = etree.tostring(tree.xpath('/html/body/div[7]/div[7]/div[2]/div[7]/table/tbody/tr[11]/td[4]')[0])[4:11].decode('utf-8').replace(',', '.')
     drum = etree.tostring(tree.xpath('/html/body/div[7]/div[7]/div[2]/div[7]/table/tbody/tr[3]/td[4]')[0])[4:11].decode('utf-8').replace(',', '.')
 
-    await message.answer(text=f'Доллар: {round(float(usd),2)}')
+    # в строке вылезал лишний символ, пришлось его удалять
+    usd = usd.replace('<', '')
+    eur = eur.replace('<', '')
+    gel = gel.replace('<', '')
+    drum = drum.replace('<', '')
+
+
+    await message.answer(text=f'Доллар: {round(float(usd), 2)}')
     await message.answer(text=f'Евро: {round(float(eur), 2)}')
     await message.answer(text=f'Лари: {round(float(gel), 2)}')
     await message.answer(text=f'Драммы: {round(float(drum)/100, 2)}', reply_markup=currency_kb)

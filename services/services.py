@@ -38,7 +38,11 @@ def currency():
     gel = etree.tostring(tree.xpath('/html/body/div[7]/div[7]/div[2]/div[7]/table/tbody/tr[11]/td[4]')[0])[4:11].decode('utf-8').replace(',', '.')
     drum = etree.tostring(tree.xpath('/html/body/div[7]/div[7]/div[2]/div[7]/table/tbody/tr[3]/td[4]')[0])[4:11].decode('utf-8').replace(',', '.')
 
-
+    # в строке вылезал лишний символ, пришлось его удалять
+    usd = usd.replace('<', '')
+    eur = eur.replace('<', '')
+    gel = gel.replace('<', '')
+    drum = drum.replace('<', '')
 
     if STATES['chosen_currency'] == 'gel':
         return gel
